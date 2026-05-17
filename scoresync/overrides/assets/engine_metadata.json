@@ -1,0 +1,58 @@
+{
+  "engine": {
+    "name": "next-rush-plus",
+    "source": "https://sekairush.com",
+    "version": 13,
+    "title": "Next RUSH+",
+    "subtitle": "Next RUSH+",
+    "author": "Next RUSH+",
+    "tags": []
+  },
+  "skin": {
+    "name": "NR-V3-S1-JP",
+    "source": "https://sekairush.com",
+    "version": 4,
+    "title": "Skin 01",
+    "subtitle": "Proseka Rush",
+    "author": "Proseka Rush",
+    "tags": [
+      {
+        "title": "3.0.0"
+      },
+      {
+        "title": "ja"
+      }
+    ]
+  },
+  "background": {
+    "name": "PR-BG-3",
+    "source": "https://sekairush.com",
+    "version": 2,
+    "title": "background v3",
+    "subtitle": "Proseka Rush",
+    "author": "Gaven#508247",
+    "tags": []
+  },
+  "effect": {
+    "name": "PR-SD-1",
+    "source": "https://sekairush.com",
+    "version": 5,
+    "title": "SE 1",
+    "subtitle": "Proseka Rush",
+    "author": "Hyeon2#7895",
+    "tags": []
+  },
+  "particle": {
+    "name": "next-rush-plus",
+    "source": "https://sekairush.com",
+    "version": 3,
+    "title": "Next RUSH+",
+    "subtitle": "Next RUSH+",
+    "author": "Hyeon2#7895",
+    "tags": [
+      {
+        "title": "V3"
+      }
+    ]
+  }
+}

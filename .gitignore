@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+.python-version
+.venv/
+venv/
+env/
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Environment/local config
+.env
+.env.*
+!.env.example
+
+# Local Sonolus packages and extracted imports
+to_import/*.scp
+to_imported/*.scp
+imported_scps/
+
+# Generated ScoreSync content and runtime cache
+scoresync/levels/
+scoresync/playlists/
+scoresync/levels_cache/
+scoresync/python-embed/
+scoresync/run.bat
+docker-compose.override.yml
+scoresync/docker-compose.override.yml
+
+# Logs/temp files
+*.log
+*.tmp
+*.bak
+
+# Bundled/downloaded archives
+*.zip
+
+# Local editor/OS noise
+.DS_Store
+.idea/
+.vscode/

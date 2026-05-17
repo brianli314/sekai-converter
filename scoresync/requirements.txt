@@ -1,0 +1,5 @@
+fastapi==0.128.0
+numpy==2.4.1
+uvicorn==0.40.0
+psutil==7.2.1
+pillow==12.1.0

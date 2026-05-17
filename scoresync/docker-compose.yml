@@ -1,0 +1,10 @@
+services:
+  scoresync:
+    build: .
+    ports:
+      - "3939:3939"
+    volumes:
+      - ./levels:/app/levels
+      - ./levels_cache:/app/levels_cache
+      - ./playlists:/app/playlists
+    restart: unless-stopped
