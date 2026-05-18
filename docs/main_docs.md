@@ -8,13 +8,7 @@ This repo imports Sonolus `.scp` packages into a patched ScoreSync-Modern server
   Imports playable `.scp` packages from `to_import/` into `scoresync/levels/` and `scoresync/playlists/`.
 
 - `dev_scripts/install_scoresync_assets_from_scp.py`
-  Installs global engine/UI assets from a reference `.scp`.
-
-- `scoresync/overrides/`
-  Patches copied over the bundled ScoreSync app when Docker builds.
-
-- `scoresync/docker-compose.yml`
-  Runs the server on port `3939`.
+  Installs global engine/UI assets from a reference `.scp` song or playlist.
 
 ## Reference SCP
 
@@ -24,7 +18,7 @@ The default reference package is:
 to_import/reference.scp
 ```
 
-It is used only as an asset donor for the global engine/UI. The asset installer copies engine, skin, background, effect, particle, thumbnail, and metadata resources into:
+It is an exported song or playlist used only as an asset donor for the global engine/UI. The asset installer copies engine, skin, background, effect, particle, thumbnail, and metadata resources into:
 
 ```text
 scoresync/overrides/assets/
@@ -59,10 +53,11 @@ The custom playlist route in `scoresync/overrides/routes/playlists.py` serves th
 ## Normal Workflow
 
 Install or refresh global UI assets:
-
 ```bash
 python3 dev_scripts/install_scoresync_assets_from_scp.py
 ```
+This does not need to be done if directly cloned from the repository, the default assets come with the NextRush+ UI.
+
 
 Import playable content:
 
@@ -93,7 +88,7 @@ Deletes generated level/playlists before importing. Use this when `scoresync/lev
 
 `--overwrite`
 
-Replaces existing extracted packages and exported folders for content being imported.
+Replaces existing extracted packages and exported folders for content being imported. If a level/package from `to_import/` exports to a folder that already exists in `scoresync/levels/`, `--overwrite` deletes and recreates that matching output folder.
 
 `--reference-scp`
 
@@ -109,6 +104,6 @@ Also imports the reference package as playable chart content.
 - Levels and generated playlists are supported; posts, rooms, replays, and browsable engine/skin/effect/particle collections are not.
 - The server uses one global engine/UI asset set from `scoresync/overrides/assets/`.
 - The importer does not deeply convert chart formats.
-- Some source charts may load incorrectly if their data does not match the installed global engine.
-- `scoresync/levels_cache/` can be created by Docker as `nobody:nobody`; clear it with `sudo rm -rf scoresync/levels_cache` if stale data persists.
+- Some source charts may load incorrectly if their data does not match the installed global engine. This has only been tested on the standard [Sonolus PJSK server](https://sonolus.sekai.best) 
 - Rebuild Docker after changing anything under `scoresync/overrides/`.
+- If adding new songs, `docker compose restart` may be used
