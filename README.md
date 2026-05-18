@@ -32,7 +32,7 @@ http://localhost:3939
 or in Sonolus, make a server with  
 
 ```text
-http://<YOUR-PUBLIC-IP>:3939
+http://<YOUR-HOST-IP>:3939
 ```
 For server issues, see the original [ScoreSync-Modern](https://github.com/UntitledCharts/ScoreSync-Modern) repository
 
