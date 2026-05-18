@@ -36,7 +36,7 @@ http://<YOUR-HOST-IP>:3939
 ```
 For server issues, see the original [ScoreSync-Modern](https://github.com/UntitledCharts/ScoreSync-Modern) repository
 
-## Extra Commands
+## Editing UI
 
 The base version comes with the NextRush+ UI from the now-deleted SekaiRush Sonolus server. You can install custom UI assets by finding a song with the correct UI/assets that you want, and placing it as `to_import/reference.scp`. See [docs](docs/main_docs.md) for more.
 
