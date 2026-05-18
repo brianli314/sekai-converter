@@ -38,7 +38,7 @@ Each generated level folder contains:
 - `LevelData.json`
 - `metadata.json`
 
-`preview.mp3` comes from the source `.scp` preview resource. This is what makes song-select previews start at the intended excerpt instead of the silent beginning of the full BGM.
+`preview.mp3` comes from the source `.scp` preview resource. This is what makes song-select previews start at the intended excerpt instead of the silent beginning of the full BGM. If the `.scp` is formatted correctly, all of these fields should be present
 
 ## Playlists
 
@@ -57,7 +57,6 @@ Install or refresh global UI assets:
 python3 dev_scripts/install_scoresync_assets_from_scp.py
 ```
 This does not need to be done if directly cloned from the repository, the default assets come with the NextRush+ UI.
-
 
 Import playable content:
 
@@ -97,6 +96,25 @@ Changes which `.scp` is treated as the reference package.
 `--import-reference`
 
 Also imports the reference package as playable chart content.
+
+## Other 
+
+Some PJSK `.scp` exports may be stripped and missing complete level metadata or repository blobs. The repair script can rebuild those exports by using a complete NextRUSH export as a donor source.
+
+Script:
+
+```text
+dev_scripts/repair_pjsk_export.py
+```
+By default, it expects:
+```
+scps/extracted_pjsk
+scps/extracted_nextrush
+```
+and writes the repaired export to `scps/extracted_pjsk_fixed`. 
+
+**This is an old script that is not necessary for normal charts** 
+
 
 ## Limitations
 
