@@ -2,6 +2,8 @@
 
 Tools for importing Sonolus `.scp` packages into a self-hosted Sonolus server that renders the charts using the NextRush+ engine and UI. Server hosting is done using [ScoreSync-Modern](https://github.com/UntitledCharts/ScoreSync-Modern).
 
+This can be used to take [PJSK server](https://sonolus.sekai.best) chart exports, which work but have a less polished/default Sonolus presentation, and repackaging them into a server that is closer to the now-shutdown SekaiRush UI and looks more similar to chart-playing in Project Sekai.
+
 ## Instructions
 1. Put playable `.scp` packages in `to_import/`.
 2. Import levels:
@@ -10,7 +12,7 @@ Tools for importing Sonolus `.scp` packages into a self-hosted Sonolus server th
 python3 import_scp_to_scoresync.py --clean --overwrite
 ```
 
-If you just want to add a new song without re-importing all the levels, run it without the `--clean` and `--overwrite` flags. See [docs](docs/main_docs.md)
+If you just want to add a new song without re-importing all the levels, run it without the `--clean` and `--overwrite` flags. See [docs](docs/main_docs.md) for more.
 
 Run the server:
 
@@ -42,17 +44,8 @@ The base version comes with the NextRush+ UI from the now-deleted SekaiRush Sono
 python3 dev_scripts/install_scoresync_assets_from_scp.py
 ```
 
-Clear Docker-owned runtime cache:
-
-```bash
-cd scoresync
-docker compose down
-cd ..
-sudo rm -rf scoresync/levels_cache
-```
-
 ## Notes
 
 - `to_import/reference.scp` is skipped as playable content by default. It is used as an engine/UI asset donor.
-- Generated level folders, generated playlists, extracted `.scp`s, and runtime caches are ignored by git.
-- See [docs/SCORESYNC_PIPELINE.md](docs/main_docs.md) for details and limitations.
+- This has only been tested on standard Sonolus charts from the [PJSK server](https://sonolus.sekai.best)
+- See [docs/SCORESYNC_PIPELINE.md](docs/main_docs.md) for details and limitations, or any errors you encouters.
