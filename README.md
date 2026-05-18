@@ -1,18 +1,18 @@
-# ScoreSync SCP Importer
+# SCP to NextRush+ chart server
 
-Tools for importing Sonolus `.scp` packages into a local ScoreSync-Modern server.
+Tools for importing Sonolus `.scp` packages into a self-hosted Sonolus server that renders the charts using the NextRush+ engine and UI. Server hosting is done using [ScoreSync-Modern](https://github.com/UntitledCharts/ScoreSync-Modern).
 
-The normal workflow is:
-
+## Instructions
 1. Put playable `.scp` packages in `to_import/`.
-2. Put the UI reference package at `to_import/reference.scp` if you need to install/reinstall the global UI assets.
-3. Import levels:
+2. Import levels:
 
 ```bash
 python3 import_scp_to_scoresync.py --clean --overwrite
 ```
 
-4. Run the server:
+If you just want to add a new song without re-importing all the levels, run it without the `--clean` and `--overwrite` flags. See [docs](docs/main_docs.md)
+
+Run the server:
 
 ```bash
 cd scoresync
@@ -27,33 +27,16 @@ Open:
 http://localhost:3939
 ```
 
-## Layout
+or in Sonolus, make a server with  
 
 ```text
-.
-├── import_scp_to_scoresync.py
-├── dev_scripts/
-│   ├── install_scoresync_assets_from_scp.py
-│   └── repair_pjsk_from_nextrush.py
-├── scoresync/
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── overrides/
-│   └── requirements.txt
-├── to_import/
-└── docs/
-    └── SCORESYNC_PIPELINE.md
+http://<YOUR-PUBLIC-IP>:3939
 ```
+For server issues, see the original [ScoreSync-Modern](https://github.com/UntitledCharts/ScoreSync-Modern) repository
 
-## Commands
+## Extra Commands
 
-Import levels from `to_import/`:
-
-```bash
-python3 import_scp_to_scoresync.py --clean --overwrite
-```
-
-Install UI assets from `to_import/reference.scp`:
+The base version comes with the NextRush+ UI from the now-deleted SekaiRush Sonolus server. You can install custom UI assets by finding a song with the correct UI/assets that you want, and placing it as `to_import/reference.scp`. Then, run
 
 ```bash
 python3 dev_scripts/install_scoresync_assets_from_scp.py
@@ -72,4 +55,4 @@ sudo rm -rf scoresync/levels_cache
 
 - `to_import/reference.scp` is skipped as playable content by default. It is used as an engine/UI asset donor.
 - Generated level folders, generated playlists, extracted `.scp`s, and runtime caches are ignored by git.
-- See [docs/SCORESYNC_PIPELINE.md](docs/SCORESYNC_PIPELINE.md) for details and limitations.
+- See [docs/SCORESYNC_PIPELINE.md](docs/main_docs.md) for details and limitations.
